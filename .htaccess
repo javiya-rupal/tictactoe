@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# For all URL starting with /css, /fonts, /img or /js
+RewriteCond %{REQUEST_URI} /?(js|css)(/.*)?$ [NC]
+RewriteRule ^(js|css)/(.*)$ public/%1%2 [L]
+
+RewriteRule api api.php

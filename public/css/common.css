@@ -1,0 +1,16 @@
+.wonBox-O {
+	background-color: yellowgreen;
+	color: #fff;
+}
+.wonBox-X {
+	background-color: red;
+	color: #fff;
+}
+td {
+	width: 33.33%;
+	vertical-align: middle !important;
+}
+.table-bordered {
+	height: 300px;
+	width: 300px;
+}
