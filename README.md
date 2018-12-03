@@ -1,6 +1,11 @@
 # tictactoe
 Basic implementation of online tictactoe game play with web interface.
 
+##Requirements
+* PHP >= 7.0.5
+* mod_rewite Enabled
+* composer installed
+
 ##Installation
 * Clone git repository in your server
 * Set you application url in "api_url" variable in js/common.js file in case if you change original folder name of an application.
