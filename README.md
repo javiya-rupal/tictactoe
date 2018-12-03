@@ -14,3 +14,5 @@ Basic implementation of online tictactoe game play with web interface.
 
 ##Write me if you have any queries
 * Write to rupal.javiya@gmail.com
+
+![Game GUI](https://github.com/javiya-rupal/tictactoe/blob/master/docs/image.png)
