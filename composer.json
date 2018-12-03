@@ -1,0 +1,27 @@
+{
+    "name": "TicTacToe",
+    "description": "TicTacToe Game",
+    "authors": [
+        {
+            "name": "Rupal Javiya",
+            "email": "rupal.javiya@gmail.com"
+        }
+    ],
+    "autoload": {
+      "classmap": ["classes/"],
+      "psr-4":{
+        "TicTac\\Classes\\": "classes/"
+      }
+    },
+    "require": {
+        "php": "^7.0.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.5.0"
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "quicktest": "vendor/bin/phpunit --no-coverage"
+    }
+}
