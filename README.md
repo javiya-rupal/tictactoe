@@ -8,7 +8,7 @@ Basic implementation of online tictactoe game play with web interface.
 
 ##Installation
 * Clone git repository in your server
-* Set you application url in "api_url" variable in js/common.js file in case if you change original folder name of an application.
+* Set you application url in "app_url" variable in js/common.js file in case if you change original folder name of an application.
 * Install composer and run command "composer install"
 * Now Run the project in your machine e.g. http://localhost/tictactoe/
 

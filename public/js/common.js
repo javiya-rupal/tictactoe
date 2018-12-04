@@ -1,8 +1,10 @@
 $(document).ready(function() {
 	var turn = 0;
 	var tic = '';
-	var api_url = '/tictactoe/api';
+	var app_url = "/tictactoe";
+	var api_url = app_url + '/api';
 
+	//Handle click event of user
 	$('td').click(function(e) {
 		turn = 1;
 		if(turn == 1){
@@ -11,6 +13,12 @@ $(document).ready(function() {
 		$(this).addClass('clicked-'+tic).off(e);
 		makeMove(e.target.id);
 	});
+	/**
+	 * Returns void
+	 *
+	 * Function to make move for actual player
+	 * 
+	 */
 	function makeMove(square){
 		$("#"+square).html(tic);
 
@@ -23,7 +31,7 @@ $(document).ready(function() {
 		else {
 			if ($('.clicked-'+tic).length < 5) {
 				turn = 2;
-				aiTurn(square);		
+				aiTurn();		
 			}
 			else {
 				setTimeout(function () { alert("Game Drawn!"); }, 200);
@@ -31,7 +39,13 @@ $(document).ready(function() {
 			}
 		}
 	}
-	function aiTurn(square)
+	/**
+	 * Returns void
+	 *
+	 * Function to take move for bot
+	 * 
+	 */
+	function aiTurn()
 	{
 		turn = 2;
 		if(turn == 2){
@@ -43,6 +57,7 @@ $(document).ready(function() {
 		});
 		var result = chunkArray(currentPositions.toArray(), 3);
 		
+		//Do makemove api call to decide next move for bot
 		$.ajax({
 			type: "POST",
 			url: api_url,
@@ -58,13 +73,18 @@ $(document).ready(function() {
 			$("#" + boxPosition).addClass('clicked-'+symbol).unbind('click');
 
 			if (checkWin(symbol)) {
-				setTimeout(function () { alert("You Loss!"); }, 200);
+				setTimeout(function () { alert("You Lost!"); }, 200);
 				$('td').unbind('click');
 				return false;
 			}
 
 		});
 	}
+	/**
+	 * Returns boolean for win
+	 *
+	 * @param symbol {Character} to pass symbol for check wining player
+	 */
 	function checkWin(symbol) {
 		//Get count of filled element on screen
 		var win = false;
@@ -103,7 +123,6 @@ $(document).ready(function() {
 	    
 	    for (index = 0; index < arrayLength; index += chunk_size) {
 	        myChunk = myArray.slice(index, index+chunk_size);
-	        // Do something if you want with the group
 	        tempArray.push(myChunk);
 	    }
 	    return tempArray;
